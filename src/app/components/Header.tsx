@@ -1,35 +1,40 @@
 'use client';
 
 import { styled } from "styled-components";
-import Logo from '../../../public/logo.png';
-import ShoppingCart from '../../../public/carrinho.png'
-
 import Image from "next/image";
 import Link from "next/link";
+import Logo from '../../../public/logo.png';
+import ShoppingCartImage from '../../../public/carrinho.png';
+import { Container } from "../styles/util";
 
-const Header = () =>{
-   return(
+
+const Header = ({ text }: any) => {
+
+  return (
     <>
-        <StyledHeader>
-            <StyledNavbar>
-                <Image src={Logo} width={200} height={100} alt="ImagineShop logo"/>
-                <StyleMenu>
-                    <StyleMenuItem>
-                        <Link href='/'>Home</Link>
-                    </StyleMenuItem>
-                    <StyleMenuItem>
-                    <Link href='/about'>Sobre</Link>
-                    </StyleMenuItem>
-                    <StyleMenuItem>
-                    <Link href='/shopping-cart'>
-                        <Image src={ShoppingCart} width={52} height={52} alt="Shopping Cart Image"/>
-                    </Link>
-                    </StyleMenuItem>
-                </StyleMenu>
-            </StyledNavbar>
-        </StyledHeader>
+      <StyledHeader>
+        <StyledNavbar>
+          <Image src={Logo} width={200} height={100} alt="imagineshop logo" />
+
+          <StyledMenu>
+            <StyledMenuItem>
+              <Link href="/">Home</Link>
+            </StyledMenuItem>
+
+            <StyledMenuItem>
+              <Link href="/about">Sobre</Link>
+            </StyledMenuItem>
+
+            <StyledMenuItem>
+              <Link href="/shopping-cart">
+                <Image src={ShoppingCartImage} width={52} height={52} alt="shopping cart image"/>
+              </Link>
+            </StyledMenuItem>
+          </StyledMenu>
+        </StyledNavbar>
+      </StyledHeader>
     </>
-   )
+  )
 }
 
 const StyledHeader = styled.header`
@@ -38,38 +43,33 @@ const StyledHeader = styled.header`
 `;
 
 const StyledNavbar = styled.nav`
-    width: 1140px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin: 0 auto;
-`
+  ${Container};
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+`;
 
-const StyleMenu = styled.ul`
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
-    display: flex;
-    gap: 2.5rem;
-    align-items: center;
+const StyledMenu = styled.ul`
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  gap: 2.5rem;
+  align-items: center;
+`;
 
-`
+const StyledMenuItem = styled.li`
+  font-size: 16px;
+  font-weight: 700;
 
-const StyleMenuItem = styled.li`
-    font-size: 16px;
-    font-weight: 700;
+  a {
+    text-decoration: none;
+    color: #000;
+  }
 
-    a{
-        text-decoration: none;
-        color: #000;
-
-    }
-
-    a:hover{
-        color: orange;
-    }
-
-`
+  a:hover {
+    color: ${({ theme }) => theme.colors.primary};
+  }
+`;
 
 export default Header;
-
