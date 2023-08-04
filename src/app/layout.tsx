@@ -14,7 +14,7 @@ const montserrat = Montserrat({ subsets: ['latin']})
 
 const theme = {
   colors: {
-    primary: '#f73f01',
+    primary: '#d15b34',
     secondary: '#777'
   }
 };

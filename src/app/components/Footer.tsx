@@ -54,6 +54,7 @@ const StyledFooterContact = styled.p`
     margin: 0;
     text-align: center;
     margin-top: 8.125rem;
+    padding: 10px;
 `;
 
 const StyledSocialMediaLinks = styled.ul`
